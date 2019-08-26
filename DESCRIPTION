@@ -1,5 +1,5 @@
 Package: geohashTools
-Version: 0.2.2
+Version: 0.2.4
 Title: Tools for Working with Geohashes
 Author: Michael Chirico, Hiroaki Kawai
 Maintainer: Michael Chirico <MichaelChirico4@gmail.com>
@@ -11,6 +11,6 @@ Imports: Rcpp (>= 1.0.0)
 Suggests: rgdal, sf, sp, testthat, mockery
 LinkingTo: Rcpp
 NeedsCompilation: yes
-Packaged: 2019-08-21 12:18:15 UTC; michael.chirico
+Packaged: 2019-08-26 14:27:40 UTC; michael.chirico
 Repository: CRAN
-Date/Publication: 2019-08-21 14:20:04 UTC
+Date/Publication: 2019-08-26 22:30:09 UTC

@@ -1,7 +1,7 @@
-9abe89fb69fc3cafd4f0cf3b11f5a7e0 *DESCRIPTION
+6a97538170845ab731423e72137027bc *DESCRIPTION
 0d2cd1f5a0e8211dcf6907bc9b9f9b9a *LICENSE
 6c30a1c75b327d7ac886f498c886fba5 *NAMESPACE
-0c60a906d57d5ce8050be93f48bfc5f6 *NEWS.md
+141379329ee2f8c3613f987138192f9b *NEWS.md
 8267f0d7bb1f7edc5df53ffe10ebe02f *R/RcppExports.R
 bc2c072af07695fe97baaa1ee7e45242 *R/gh_decode.R
 16b8ad54c2e383cba2e877bbffd67a5e *R/gh_encode.R
@@ -16,7 +16,7 @@ a6c43c24fe16372b9c984c0e5088c2d1 *man/gh_encode.Rd
 6f1b1c9ff54cd73078caa346f9ea90fb *man/gis_tools.Rd
 edea6d205115286c6092ce685366edc7 *man/utils.Rd
 a2f0d752c3bc4950961e65dbd9cbb921 *src/RcppExports.cpp
-ed4f3633f5cad890444b5fa45147e5d9 *src/geohash.cpp
+d4ae36caa1f4166f17961e73df0e3d57 *src/geohash.cpp
 eedcbb09d49643a3eca463fcc4846fb8 *src/geohash.h
 9471a28f0df27ad70eb3a75b08264d87 *tests/testthat.R
 69846d2ff6d9afea277d908b16bff46f *tests/testthat/test-decode.R
