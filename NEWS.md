@@ -1,5 +1,23 @@
 # `geohashTools` NEWS
 
+## v0.3.1
+
+### NEW FEATURES
+
+ 1. `gh_decode` accepts and efficiently processes `factor` input by only decoding each level one time, [#17](https://github.com/MichaelChirico/geohashTools/issues/17). If you're likely to have a fair number of duplicate geohashes in your input, consider storing them as a factor for efficiency. In a few representative on 5-20M-size datasets, I saw roughly 5x speed-up from this approach; however, the time to convert from string to factor out-weighed this gain, so it's best deployed on data where the geohashes are stored as factor anyway.
+
+### BUG FIXES
+
+ 1. `gh_decode` errors early on non-ASCII input to prevent out-of-memory access, [#19](https://github.com/MichaelChirico/geohashTools/issues/19).
+ 
+ 2. Dependency upgrade of `r-spatial` to PROJ 6 revealed a test failure in `geohashTools` that has now been corrected, [#23](https://github.com/MichaelChirico/geohashTools/issues/23). Thanks @rsbivand for his diligence and proactivity in identifying the failure, to @Nowosad for providing helpful Docker images for testing, and @mdsumner for helpful comments.
+ 
+ 3. Input with longitude< -180 (which should be wrapped again around the Earth) was calculated incorrectly, [#27](https://github.com/MichaelChirico/geohashTools/issues/27).
+
+### NOTES
+
+ 1. Removed `mockery` from Suggests. It may later be restored, but currently it's not used.
+
 ## v0.3.0
 
 ### NEW FEATURES

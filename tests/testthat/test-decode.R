@@ -18,6 +18,10 @@ test_that('geohash decoder works', {
                list(latitude = c(-7.60528564453125, 42.91259765625),
                     longitude = c(110.198364257812, 17.60009765625)))
 
+  # input is factor, #17
+  x = gl(4L, 20L, labels = c(borobudur, akarenga, kalakuta, neum))
+  expect_equal(gh_decode(x), gh_decode(as.character(x)))
+
   # option: include_delta
   expect_equal(gh_decode(borobudur, include_delta = TRUE),
                list(latitude = -7.60528564453125,
@@ -103,4 +107,12 @@ test_that('geohash decoder works', {
   expect_equal(gh_decode(paste(rep('1', 26L), collapse = '')),
                list(latitude = -84.1935483870968,
                     longitude = -133.548387117729))
+
+  ## non-ASCII input #19
+  ##   useBytes needed a bit strangely -- that the error returns with _any_
+  ##     non-ASCII character throws off the string matching even when only
+  ##     attempting to match ASCII-only characters.
+  expect_error(gh_decode(rawToChar(as.raw(128))),
+               fixed = TRUE, useBytes = TRUE,
+               'Non-ASCII character at index 1')
 })
