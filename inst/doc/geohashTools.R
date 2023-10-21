@@ -1,15 +1,17 @@
-## ---- eval = TRUE, include = FALSE--------------------------------------------
+## ----eval = TRUE, include = FALSE---------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
+  comment = '#>',
   warning = FALSE,
   message = FALSE
 )
 
 
 ## ----precision_table,  message=FALSE, warning=FALSE,  echo=FALSE--------------
-data.frame(`Geohash Length` = c(1:8),
-  `KM error`= c(2500, 630, 78, 20, 2.4, 0.61, 0.076, 0.019))
+data.frame(
+  `Geohash Length` = 1:8,
+  `KM error`= c(2500.0, 630.0, 78.0, 20.0, 2.4, 0.61, 0.076, 0.019)
+)
 
 ## ----tayrona------------------------------------------------------------------
 library(geohashTools)
@@ -20,10 +22,10 @@ gh_encode(11.3113917, -74.0779006, precision = 5L)
 
 ## -----------------------------------------------------------------------------
 coords = data.frame(
-  x=rnorm(20),
-  y=rnorm(20)
+  x=rnorm(20L),
+  y=rnorm(20L)
 )
-gh <- gh_encode(coords$x,coords$y)
+gh <- gh_encode(coords$x, coords$y)
 gh
 
 ## ----yirgacheffe--------------------------------------------------------------
@@ -43,24 +45,26 @@ gh_neighbors('w21z74nz')
 
 ## ----merlion_nbhd, fig.width = 3, fig.height = 3, out.width = '\\textwidth'----
 library(sf)
-merlion_ghs <- gh_neighbors("w21z74")
+merlion_ghs <- gh_neighbors('w21z74')
 merlion_nbhd <- gh_to_sf(merlion_ghs)
 
 # Example plot of geohashes neighbouring w21z74
 plot(merlion_nbhd, col = NA, reset = FALSE, key.pos = NULL)
-text(st_coordinates(st_centroid(merlion_nbhd)),
-     labels = row.names(merlion_nbhd))
+text(
+  st_coordinates(st_centroid(merlion_nbhd)),
+  labels = row.names(merlion_nbhd)
+)
 
 ## ----meuse, fig.width = 4, fig.height = 4, out.width = '\\textwidth'----------
-if (!requireNamespace("ggplot2")) {
-  install.packages("ggplot2")
+if (!requireNamespace('ggplot2', quietly = TRUE)) {
+  install.packages('ggplot2')
 }
 
 library(ggplot2)
 
-data(meuse, package = "sp")
-meuse_sf = st_as_sf(meuse, coords = c("x", "y"), crs = 28992, agr = "constant")
-meuse_sf <- st_transform(meuse_sf, crs = st_crs(4326))
+data(meuse, package = 'sp')
+meuse_sf = st_as_sf(meuse, coords = c('x', 'y'), crs = 28992L, agr = 'constant')
+meuse_sf <- st_transform(meuse_sf, crs = 4326L)
 
 ggplot() +
   geom_sf(data = meuse_sf, aes(colour = cadmium)) +
